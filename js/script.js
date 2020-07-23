@@ -1,3 +1,6 @@
+const pontosArea = document.getElementById('pontos');
+let pontos = 0;
+pontosArea.innerHTML = `Pontos: ${pontos}`;
 function addBalao() {
 	const personagem = document.createElement("img");
 	const imgs = Math.floor(Math.random() * 7);
@@ -9,6 +12,7 @@ function addBalao() {
 	document.body.appendChild(personagem);
 }
 function estourar(elemento) {
+	pontosArea.innerHTML = `Pontos: ${pontos+=1}`;
 	document.body.removeChild(elemento);
 }
 function resetar() {
