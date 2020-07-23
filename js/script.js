@@ -1,3 +1,6 @@
+const poof = document.getElementById('poof');
+const jutsu = document.getElementById('jutsu');
+
 const pontosArea = document.getElementById('pontos');
 let pontos = 0;
 pontosArea.innerHTML = `Pontos: ${pontos}`;
@@ -10,11 +13,13 @@ function addBalao() {
 	personagem.setAttribute("onclick", `estourar(this)`);
 	personagem.setAttribute("style", `top:${imgY}px;left:${imgX}px;`);
 	document.body.appendChild(personagem);
+	jutsu.play();
 }
 function estourar(elemento) {
+	setTimeout(poof.play(), 100);
 	pontosArea.innerHTML = `Pontos: ${pontos+=1}`;
 	document.body.removeChild(elemento);
 }
 function resetar() {
-	setInterval(addBalao, 1000);
+	setInterval(addBalao, 2000);
 }
